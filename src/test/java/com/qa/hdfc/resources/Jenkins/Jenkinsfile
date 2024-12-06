@@ -1,6 +1,11 @@
 pipeline{
     agent any
     stages {
+        stage("Clone Repo"){
+            steps {
+                sh "git clone https://github.com/MGod007/hdfctest.git"
+            }
+        }
         stage("Build"){
             steps {
                 dir("hdfctest"){
@@ -8,11 +13,7 @@ pipeline{
                 }
             }
         }
-        stage("Clone Repo"){
-            steps {
-                sh "git clone https://github.com/MGod007/hdfctest.git"
-            }
-        }
+        
         stage("Test"){
             steps{
                 dir("hdfctest"){
