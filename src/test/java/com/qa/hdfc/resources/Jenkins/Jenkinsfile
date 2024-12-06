@@ -8,6 +8,11 @@ pipeline{
                 }
             }
         }
+        stage("Clone Repo"){
+            steps {
+                sh "git clone https://github.com/MGod007/hdfctest.git"
+            }
+        }
         stage("Test"){
             steps{
                 dir("hdfctest"){
